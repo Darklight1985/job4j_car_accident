@@ -27,21 +27,29 @@
 <div class="row">
     <div class="card" style="width: 100%">
         <div class="card-header">
-            Таблица
+            Правонарушения
         </div>
         <div class="card-body">
             <table class="table">
                 <thead>
                 <tr>
-                    <th scope="col">Имена</th>
+                    <th scope="col">Название</th>
+                    <th scope="col">Описание</th>
+                    <th scope="col">Адрес</th>
                 </tr>
                 </thead>
                 <tbody>
                 ${user}
-                <c:forEach items="${names}" var="users">
+                <c:forEach items="${accidents}" var="accident">
                 <tr>
                     <td>
-                            <c:out value="${users}"/>
+                        <c:out value="${accident.value.name}"/>
+                    </td>
+                    <td>
+                        <c:out value="${accident.value.text}"/>
+                    </td>
+                    <td>
+                        <c:out value="${accident.value.address}"/>
                     </td>
                 </tr>
                 </c:forEach>
