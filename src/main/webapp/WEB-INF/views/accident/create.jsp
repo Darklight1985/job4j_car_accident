@@ -18,50 +18,27 @@
             integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <title>Accident</title>
+    <title>Новое правонарушение</title>
 </head>
 <body>
-<div class="row">
-    <ul class="nav">
-        <li class="nav-item">
-            <a href="<c:url value='/create'/>">Добавить инцидент</a>
-        </li>
-    </ul>
-</div>
-
-<div class="row">
-    <div class="card" style="width: 100%">
-        <div class="card-header">
-            Правонарушения
-        </div>
-        <div class="card-body">
-            <table class="table">
-                <thead>
-                <tr>
-                    <th scope="col">Название</th>
-                    <th scope="col">Описание</th>
-                    <th scope="col">Адрес</th>
-                </tr>
-                </thead>
-                <tbody>
-                ${user}
-                <c:forEach items="${accidents}" var="accident">
-                <tr>
-                    <td>
-                        <c:out value="${accident.value.name}"/>
-                    </td>
-                    <td>
-                        <c:out value="${accident.value.text}"/>
-                    </td>
-                    <td>
-                        <c:out value="${accident.value.address}"/>
-                    </td>
-                </tr>
-                </c:forEach>
-                </tbody>
-            </table>
-        </div>
-    </div>
-</div>
+<form  action="<c:url value='/save'/>" method='POST'>
+    <table>
+        <tr>
+            <td>Название:</td>
+            <td><input type='text' name='name'></td>
+        </tr>
+        <tr>
+            <td>Описание:</td>
+            <td><input type='text' name='description'></td>
+        </tr>
+        <tr>
+            <td>Адрес:</td>
+            <td><input type='text' name='adress'></td>
+        </tr>
+        <tr>
+            <td colspan='2'><input name="submit" type="submit" value="Сохранить" /></td>
+        </tr>
+    </table>
+</form>
 </body>
 </html>
