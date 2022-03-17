@@ -8,7 +8,6 @@ import ru.job4j.accident.repository.AccidentMem;
 import ru.job4j.accident.service.AccidentService;
 
 import java.util.Collection;
-import java.util.List;
 
 @Controller
 public class IndexControl {

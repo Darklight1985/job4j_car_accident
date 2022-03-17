@@ -25,4 +25,5 @@ public class AccidentControl {
         accidents.addAcc(accident);
         return "redirect:/";
     }
+
 }
