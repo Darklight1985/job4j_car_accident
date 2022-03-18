@@ -8,6 +8,15 @@ public class Accident {
     private String text;
     private String address;
 
+    public Accident() {
+    }
+
+    public Accident(String name, String text, String address) {
+        this.name = name;
+        this.text = text;
+        this.address = address;
+    }
+
     public Accident(int id, String name, String text, String address) {
         this.id = id;
         this.name = name;
@@ -49,8 +58,12 @@ public class Accident {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         Accident accident = (Accident) o;
         return id == accident.id && Objects.equals(name, accident.name)
                 && Objects.equals(text, accident.text) && Objects.equals(address, accident.address);

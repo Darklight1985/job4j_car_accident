@@ -9,12 +9,10 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 @Repository
 public class AccidentMem {
-    private HashMap<Integer, Accident> accidents;
-    private AtomicInteger number;
+    private HashMap<Integer, Accident> accidents = new HashMap<>();
+    private AtomicInteger number = new AtomicInteger();
 
     public AccidentMem() {
-        this.accidents = new HashMap<>();
-        this.number = new AtomicInteger();
         addAcc(new Accident(1, "Нарушение 1",
                 "какое-то нарушение", "Москва, ул. Иванова д.2"));
         addAcc(new Accident(2, "Нарушение 2",

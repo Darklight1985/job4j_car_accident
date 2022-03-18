@@ -11,10 +11,11 @@ import java.util.Collection;
 
 @Controller
 public class IndexControl {
+    private AccidentService service;
+
     @GetMapping("/")
     public String index(Model model) {
-        AccidentMem accidentMem = new AccidentMem();
-        AccidentService service = new AccidentService();
+        service = new AccidentService(new AccidentMem());
         Collection<Accident> list = service.allAccident();
         model.addAttribute("accidents", list);
         return "index";
