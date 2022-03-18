@@ -25,6 +25,10 @@ public class AccidentMem {
         return accidents.put(number.incrementAndGet(), accident);
     }
 
+    public Accident finfByID(int id) {
+        return accidents.get(id);
+    }
+
     public Collection<Accident> getAccidents() {
         return accidents.values();
     }

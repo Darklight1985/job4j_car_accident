@@ -23,18 +23,18 @@
 <div class="row">
     <div class="card" style="width: 100%">
         <div class="card-body">
-            <form action="<c:url value='/save'/>" method="post">
+            <form action="<c:url value='/save?id=${accident.id}'/>" method='POST'>
                 <div class="form-group">
                     <label>Название</label>
-                    <input type="text" class="form-control" name="name" id="name" required>
+                    <input type="text" class="form-control" name="name" id="name" value="${accident.name}" required>
                 </div>
                 <div class="form-group">
                     <label>Описание</label>
-                    <input type="text" class="form-control" name="description" id="descr" required>
+                    <input type="text" class="form-control" name="description" id="descr" value="${accident.text}" required>
                 </div>
                 <div class="form-group">
                     <label>Адрес</label>
-                    <input type="text" class="form-control" name="name" id="adress" required>
+                    <input type="text" class="form-control" name="name" id="address" value="${accident.address}" required>
                 </div>
                 <button type="submit" class="btn btn-primary">Сохранить</button>
             </form>
