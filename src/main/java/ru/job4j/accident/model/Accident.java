@@ -7,21 +7,25 @@ public class Accident {
     private String name;
     private String text;
     private String address;
+    private AccidentType type;
 
     public Accident() {
     }
 
-    public Accident(String name, String text, String address) {
-        this.name = name;
-        this.text = text;
-        this.address = address;
-    }
-
-    public Accident(int id, String name, String text, String address) {
+    public Accident(int id, String name, String text, String address, AccidentType type) {
         this.id = id;
         this.name = name;
         this.text = text;
         this.address = address;
+        this.type = type;
+    }
+
+    public AccidentType getType() {
+        return type;
+    }
+
+    public void setType(AccidentType type) {
+        this.type = type;
     }
 
     public int getId() {
@@ -66,12 +70,13 @@ public class Accident {
         }
         Accident accident = (Accident) o;
         return id == accident.id && Objects.equals(name, accident.name)
-                && Objects.equals(text, accident.text) && Objects.equals(address, accident.address);
+                && Objects.equals(text, accident.text) && Objects.equals(address, accident.address)
+                && Objects.equals(type, accident.type);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, text, address);
+        return Objects.hash(id, name, text, address, type);
     }
 
     @Override
@@ -81,6 +86,7 @@ public class Accident {
                 + ", name='" + name + '\''
                 + ", text='" + text + '\''
                 + ", address='" + address + '\''
+                + ", type=" + type
                 + '}';
     }
 }
