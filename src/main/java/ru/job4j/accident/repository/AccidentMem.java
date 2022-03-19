@@ -43,6 +43,10 @@ public class AccidentMem {
         return accidents.values();
     }
 
+    public Collection<AccidentType> getAccType() {
+        return accType.values();
+    }
+
     public Collection<Accident> getAccidentsByType(int typeId) {
        return accidents.values()
                .stream()
