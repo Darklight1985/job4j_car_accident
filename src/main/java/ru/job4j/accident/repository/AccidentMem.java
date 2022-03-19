@@ -3,10 +3,9 @@ package ru.job4j.accident.repository;
 import org.springframework.stereotype.Repository;
 import ru.job4j.accident.model.Accident;
 import ru.job4j.accident.model.AccidentType;
+import ru.job4j.accident.model.Rule;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
+import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 
@@ -14,12 +13,16 @@ import java.util.stream.Collectors;
 public class AccidentMem {
     private HashMap<Integer, Accident> accidents = new HashMap<>();
     private HashMap<Integer, AccidentType> accType = new HashMap<>();
+    private HashMap<Integer, Rule> rules = new HashMap<>();
     private AtomicInteger number = new AtomicInteger();
 
     public AccidentMem() {
         accType.put(1, AccidentType.of(1, "Две машины"));
         accType.put(2, AccidentType.of(2, "Машина и человек"));
         accType.put(3, AccidentType.of(3, "Машина и велосипед"));
+        rules.put(1, Rule.of(1, "Статья. 1"));
+        rules.put(2, Rule.of(2, "Статья. 2"));
+        rules.put(3, Rule.of(3, "Статья. 3"));
         addAcc(new Accident(1, "Нарушение 1",
                 "какое-то нарушение", "Москва, ул. Иванова д.2",
                 accType.get(1)));
@@ -37,6 +40,22 @@ public class AccidentMem {
 
     public Accident finfByID(int id) {
         return accidents.get(id);
+    }
+
+    public Collection<Rule> getRules() {
+        return rules.values();
+    }
+
+    public Collection<Rule> getRulesByID(String[] ids) {
+        Collection<Rule> result = new ArrayList<>();
+        for (Map.Entry<Integer, Rule> pair: rules.entrySet()) {
+            for (String id: ids) {
+                if (pair.getKey() == Integer.parseInt(id)) {
+                    result.add(pair.getValue());
+                }
+            }
+        }
+        return result;
     }
 
     public Collection<Accident> getAccidents() {

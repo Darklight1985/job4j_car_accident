@@ -26,6 +26,10 @@ public class Accident {
         return type;
     }
 
+    public void addRule(Rule rule) {
+        this.rules.add(rule);
+    }
+
     public void setType(AccidentType type) {
         this.type = type;
     }
