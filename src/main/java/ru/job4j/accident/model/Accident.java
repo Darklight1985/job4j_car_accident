@@ -1,5 +1,6 @@
 package ru.job4j.accident.model;
 
+import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
@@ -20,6 +21,7 @@ public class Accident {
         this.text = text;
         this.address = address;
         this.type = type;
+        this.rules = new HashSet<>();
     }
 
     public AccidentType getType() {
@@ -32,6 +34,10 @@ public class Accident {
 
     public void setType(AccidentType type) {
         this.type = type;
+    }
+
+    public void setRules(Set<Rule> rules) {
+        this.rules = rules;
     }
 
     public int getId() {

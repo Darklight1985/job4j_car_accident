@@ -42,12 +42,16 @@ public class AccidentMem {
         return accidents.get(id);
     }
 
+    public AccidentType findTypeByID(int id) {
+        return accType.get(id);
+    }
+
     public Collection<Rule> getRules() {
         return rules.values();
     }
 
-    public Collection<Rule> getRulesByID(String[] ids) {
-        Collection<Rule> result = new ArrayList<>();
+    public Set<Rule> getRulesByID(String[] ids) {
+        Set<Rule> result = new HashSet<>();
         for (Map.Entry<Integer, Rule> pair: rules.entrySet()) {
             for (String id: ids) {
                 if (pair.getKey() == Integer.parseInt(id)) {
