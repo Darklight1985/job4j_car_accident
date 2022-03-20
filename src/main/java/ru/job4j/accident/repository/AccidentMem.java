@@ -52,13 +52,9 @@ public class AccidentMem {
 
     public Set<Rule> getRulesByID(String[] ids) {
         Set<Rule> result = new HashSet<>();
-        for (Map.Entry<Integer, Rule> pair: rules.entrySet()) {
-            for (String id: ids) {
-                if (pair.getKey() == Integer.parseInt(id)) {
-                    result.add(pair.getValue());
-                }
-            }
-        }
+      for (String str: ids) {
+          result.add(rules.get(str));
+      }
         return result;
     }
 
