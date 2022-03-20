@@ -38,7 +38,7 @@ public class AccidentMem {
         return accidents.put(number.incrementAndGet(), accident);
     }
 
-    public Accident finfByID(int id) {
+    public Accident findByID(int id) {
         return accidents.get(id);
     }
 
