@@ -30,11 +30,11 @@
                 </div>
                 <div class="form-group">
                     <label>Описание</label>
-                    <input type="text" class="form-control" name="description" id="descr" value="${accident.text}" required>
+                    <input type="text" class="form-control" name="text" id="descr" value="${accident.text}" required>
                 </div>
                 <div class="form-group">
                     <label>Адрес</label>
-                    <input type="text" class="form-control" name="name" id="address" value="${accident.address}" required>
+                    <input type="text" class="form-control" name="address" id="address" value="${accident.address}" required>
                 </div>
                 <div class="form-group">
                     <label>Тип:</label>
@@ -46,7 +46,7 @@
                 </div>
                 <div class="form-group">
                     <label>Статьи:</label>
-                        <select name="rIds" multiple>
+                        <select name="rIds" multiple required>
                             <c:forEach var="rule" items="${rules}" >
                                 <option value="${rule.id}">${rule.name}</option>
                             </c:forEach>
