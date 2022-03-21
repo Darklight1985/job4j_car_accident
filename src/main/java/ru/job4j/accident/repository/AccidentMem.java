@@ -53,7 +53,7 @@ public class AccidentMem {
     public Set<Rule> getRulesByID(String[] ids) {
         Set<Rule> result = new HashSet<>();
       for (String str: ids) {
-          result.add(rules.get(str));
+          result.add(rules.get(Integer.parseInt(str)));
       }
         return result;
     }
