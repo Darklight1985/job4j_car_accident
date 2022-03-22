@@ -8,13 +8,16 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import ru.job4j.accident.model.Accident;
 import ru.job4j.accident.service.AccidentService;
+import ru.job4j.accident.service.AccidentServiceHb;
+import ru.job4j.accident.service.ServiceAcc;
+
 import javax.servlet.http.HttpServletRequest;
 
 @Controller
 public class AccidentControl {
-    private final AccidentService accidents;
+    private final ServiceAcc accidents;
 
-    public AccidentControl(AccidentService accidents) {
+    public AccidentControl(AccidentServiceHb accidents) {
         this.accidents = accidents;
     }
 

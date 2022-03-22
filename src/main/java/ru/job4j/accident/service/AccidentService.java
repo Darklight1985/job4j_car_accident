@@ -9,7 +9,7 @@ import java.util.Collection;
 import java.util.Set;
 
 @Service
-public class AccidentService {
+public class AccidentService implements ServiceAcc {
     private AccidentJdbcTemplate accidentJdbc;
 
     public AccidentService(AccidentJdbcTemplate accidentJdbc) {
