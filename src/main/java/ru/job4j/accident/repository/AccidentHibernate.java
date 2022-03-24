@@ -26,7 +26,7 @@ public class AccidentHibernate {
     public Accident save(Accident accident, String[] ids) {
        return this.tx(session -> {
            for (String id: ids) {
-               accident.addRule(session.find(Rule.class, Integer.parseInt(id)));
+               accident.addRule(Rule.of(Integer.parseInt(id), ""));
            }
             session.saveOrUpdate(accident);
             return accident;
