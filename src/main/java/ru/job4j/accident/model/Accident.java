@@ -16,11 +16,11 @@ public class Accident {
     private String text;
     private String address;
 
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "acc_type_id")
     private AccidentType type;
 
-    @ManyToMany (fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToMany (fetch = FetchType.LAZY)
     @JoinTable(name = "accident_rule", joinColumns = {
             @JoinColumn(name = "rule_id", nullable = false, updatable = false)},
             inverseJoinColumns = {
