@@ -21,18 +21,21 @@
     <title>Accident</title>
 </head>
 <body>
-<div class="row">
-    <ul class="nav">
-        <li class="nav-item">
-            <a href="<c:url value='/create'/>">Добавить инцидент</a>
-        </li>
+<div class="card-header">
+    <ul class="nav" id="userrow">
+        <div class="nav-item">
+            <h6 class="nav-link" >Login as : ${user.username}&nbsp</h6>
+        </div>
+        <div class="nav-item">
+            <a class="nav-link" href="<c:url value='/create'/>">Добавить инцидент</a>
+        </div>
     </ul>
 </div>
 
 <div class="row">
     <div class="card" style="width: 100%">
         <div class="card-header">
-            Правонарушения
+            <h5>Правонарушения</h5>
         </div>
         <div class="card-body">
             <table class="table">
@@ -45,7 +48,6 @@
                 </tr>
                 </thead>
                 <tbody>
-                ${user}
                 <c:forEach items="${accidents}" var="accident">
                 <tr>
                     <td>
