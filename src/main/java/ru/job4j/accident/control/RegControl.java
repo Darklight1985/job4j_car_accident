@@ -1,5 +1,6 @@
 package ru.job4j.accident.control;
 
+import org.springframework.lang.NonNull;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,6 +12,8 @@ import ru.job4j.accident.model.Accident;
 import ru.job4j.accident.model.User;
 import ru.job4j.accident.repository.AuthorityRepository;
 import ru.job4j.accident.repository.UserRepository;
+
+import static java.util.Objects.nonNull;
 
 @Controller
 public class RegControl {
@@ -29,14 +32,12 @@ public class RegControl {
     @PostMapping("/reg")
     public String regSave(@ModelAttribute User user, Model model) {
         String errorMessage = null;
-        if (users.findAll().iterator().hasNext()) {
-            if (users.findAll().iterator().next().getUsername().equals(user.getUsername())) {
+        if (nonNull(users.findByUsername(user.getUsername())))  {
                 model.addAttribute("errorMessage", 
                         "A user with this name is already registered !!");
                 return "reg";
             }
 
-        }
             user.setEnabled(true);
             user.setPassword(encoder.encode(user.getPassword()));
             user.setAuthority(authorities.findByAuthority("ROLE_USER"));
